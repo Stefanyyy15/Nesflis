@@ -61,4 +61,11 @@ public class Administrador {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    @Override
+    public String toString() {
+        return "Administrador{" + "id_administrador=" + id_administrador + ", nombre=" + nombre + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + ", contenido=" + contenido + '}';
+    }
+    
+    
 }

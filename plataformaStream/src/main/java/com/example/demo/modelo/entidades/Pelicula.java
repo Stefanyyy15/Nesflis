@@ -11,6 +11,10 @@ public class Pelicula extends Contenido {
         super(titulo, descripcion, anio_Estreno, clasificacion, generos, actores);
         this.duracion = duracion;
     }    
+    
+    public Pelicula(){
+        
+    }
 
     public int getDuracion() {
         return duracion;
