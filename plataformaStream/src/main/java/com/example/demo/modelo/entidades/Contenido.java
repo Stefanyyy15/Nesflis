@@ -11,7 +11,7 @@ public class Contenido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_contenido;
-
+    
     @Column(nullable = false, length = 256)
     private String titulo;
     @Column(columnDefinition = "TEXT")
@@ -23,7 +23,7 @@ public class Contenido {
     @Column(nullable = false, length = 256)
     private String clasificacion;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "contenidoGenero",
             joinColumns = @JoinColumn(name = "id_contenido"),
@@ -54,6 +54,12 @@ public class Contenido {
         this.generos = generos;
         this.actores = actores;
     }
+
+    public Contenido(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    
     
     public Contenido() {}
 

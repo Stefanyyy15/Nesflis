@@ -11,7 +11,7 @@ public class Genero {
     @Column(nullable = false, length = 265)
     private String nombre;
     
-    @ManyToMany(mappedBy = "genero")
+    @ManyToMany(mappedBy = "generos")
     private List<Contenido> contenidos;
 
     public Genero(String nombre, List<Contenido> contenidos) {

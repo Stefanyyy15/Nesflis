@@ -10,7 +10,7 @@ public class Valoracion {
     private Long id_valoracion;
 
     @Column(nullable = false) 
-    private Integer puntuacion;
+    private int puntuacion;
 
     @Column(nullable = false,length = 500) 
     private String comentario;
@@ -26,7 +26,7 @@ public class Valoracion {
     @JoinColumn(name = "id_contenido", nullable = false) 
     private Contenido contenido;
 
-    public Valoracion(Usuario usuario, Contenido contenido, Integer puntuacion, String comentario, Date fecha) {
+    public Valoracion(Usuario usuario, Contenido contenido, int puntuacion, String comentario, Date fecha) {
         this.usuario = usuario;
         this.contenido = contenido;
         this.puntuacion = puntuacion;
@@ -58,11 +58,11 @@ public class Valoracion {
         this.contenido = contenido;
     }
 
-    public Integer getPuntuacion() {
+    public int getPuntuacion() {
         return puntuacion;
     }
 
-    public void setPuntuacion(Integer puntuacion) {
+    public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
 

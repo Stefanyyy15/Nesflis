@@ -6,5 +6,5 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PerfilRepositorio extends JpaRepository<Perfil, Long>{
-    List<Perfil> findByUsuario_Id(Long idUsuario);
+//    List<Perfil> findByUsuario_Id(Long idUsuario);
 }

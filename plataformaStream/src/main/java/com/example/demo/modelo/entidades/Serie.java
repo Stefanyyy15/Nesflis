@@ -3,10 +3,8 @@ package com.example.demo.modelo.entidades;
 import jakarta.persistence.*;
 import java.util.List;
 
+@Entity
 public class Serie extends Contenido {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_serie;
     @Column(nullable = false)
     private int capitulos;
     @Column(nullable = false)
@@ -16,14 +14,6 @@ public class Serie extends Contenido {
         super(titulo, descripcion, anio_Estreno, clasificacion, generos, actores);
         this.capitulos = capitulos;
         this.num_temporadas = num_temporadas;
-    }
-    
-    public Long getId_serie() {
-        return id_serie;
-    }
-
-    public void setId_serie(Long id_serie) {
-        this.id_serie = id_serie;
     }
 
     public int getCapitulos() {

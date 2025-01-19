@@ -11,7 +11,7 @@ public class Plan {
     private Long id_plan;
     @Column(nullable = false, length = 256)
     private String nombre;
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private double precio_mensual;
     @Column(nullable = false, length = 256)
     private String calidad_video;

@@ -16,11 +16,18 @@ public class Administrador {
 
     @Column(nullable = false) 
     private String contraseña;
+    
+    @OneToOne(mappedBy = "administrador")
+    private Contenido contenido;
 
     public Administrador(String nombre, String correo, String contraseña) {
         this.nombre = nombre;
         this.correo = correo;
         this.contraseña = contraseña;
+    }
+    
+    public Administrador(){
+        
     }
 
     public Long getId() {
