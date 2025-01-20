@@ -51,4 +51,27 @@ public class Genero {
     public String toString() {
         return "Genero{" + "id_genero=" + id_genero + ", nombre=" + nombre + ", contenidos=" + contenidos + '}';
     }
+<<<<<<< HEAD
+=======
+    
+    
+        
+////                1. Agregar Genero
+//         Genero gen8 = new Genero();
+//       gen8.setNombre("Romance");
+//       generoService.saveGenero(gen8);
+//
+////        2. Listar Generos
+//         generoService.listarGeneros();
+//        
+////          3. Encontrar servicio x ID
+//        Optional<Genero> generoEncontrado = generoService.encontrarGenero(Long.valueOf("2"));
+//        generoEncontrado.ifPresent(g -> System.out.println("Género encontrado: " + g.getNombre()));
+//
+////            4. Eliminar Genero
+//          generoService.delGenero(Long.valueOf("3"));
+//        
+        
+//
+>>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
 }

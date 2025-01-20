@@ -65,6 +65,11 @@ public class Reparto {
     public String toString() {
         return "Reparto{" + "id=" + id + ", nombre=" + nombre + ", rol=" + rol + ", contenidos=" + contenidos + '}';
     }
+<<<<<<< HEAD
     
     
+=======
+
+
+>>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
 }
