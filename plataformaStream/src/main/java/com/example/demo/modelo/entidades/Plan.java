@@ -70,4 +70,5 @@ public class Plan {
     public void setNum_perfiles(int num_perfiles) {
         this.num_perfiles = num_perfiles;
     }
+   
 }   

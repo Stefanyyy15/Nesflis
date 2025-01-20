@@ -23,4 +23,5 @@ public class Pelicula extends Contenido {
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
+    
 }
