@@ -61,6 +61,11 @@ Directo al archivo
 
 ![Diagrama ER](img/DiagramaER.webp)
 
+## Diagrama de clases
+[Diagrama en blanco.pdf](https://github.com/user-attachments/files/18476273/Diagrama.en.blanco.pdf)
+
+
+
 ## FAQs
 Lista de preguntas frecuentes:
 1. ¿Cómo puedo contribuir al proyecto?
@@ -77,6 +82,11 @@ Lista de preguntas frecuentes:
 Este proyecto está licenciado bajo la Licencia MIT. 
 
 [![Licencia MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## Video
+
+https://www.youtube.com/watch?v=TxEFYcGrN1g
+
 
 ## Contacto
 
