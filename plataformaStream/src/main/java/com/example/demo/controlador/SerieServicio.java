@@ -1,4 +1,4 @@
-package com.example.demo.modelo.servicio;
+package com.example.demo.controlador;
 
 import com.example.demo.modelo.entidades.Serie;
 import com.example.demo.modelo.repositorio.SerieRepositorio;
@@ -11,26 +11,26 @@ import java.util.Optional;
 @Service
 public class SerieServicio {
 
-    private final SerieRepositorio serieRepositorio;
-
     @Autowired
-    public SerieServicio(SerieRepositorio serieRepositorio) {
-        this.serieRepositorio = serieRepositorio;
-    }
+    private SerieRepositorio serieRepositorio;
 
-    public Serie guardarSerie(Serie serie) {
+    // Crear o actualizar una serie
+    public Serie saveSerie(Serie serie) {
         return serieRepositorio.save(serie);
     }
 
-    public List<Serie> obtenerSeries() {
+    // Eliminar una serie por su ID
+    public void deleteSerie(Long serieId) {
+        serieRepositorio.deleteById(serieId);
+    }
+
+    // Listar todas las series
+    public List<Serie> listarSeries() {
         return serieRepositorio.findAll();
     }
 
-    public Optional<Serie> obtenerSeriePorId(Long id) {
-        return serieRepositorio.findById(id);
-    }
-
-    public void eliminarSerie(Long id) {
-        serieRepositorio.deleteById(id);
+    // Encontrar una serie por su ID
+    public Optional<Serie> encontrarSerie(Long serieId) {
+        return serieRepositorio.findById(serieId);
     }
 }

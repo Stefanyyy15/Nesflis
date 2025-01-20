@@ -8,8 +8,9 @@ import com.example.demo.controlador.PerfilServicio;
 import com.example.demo.controlador.PlanServicio;
 import com.example.demo.controlador.RepartoServicio;
 import com.example.demo.controlador.RoleServicio;
+import com.example.demo.controlador.SerieServicio;
 import com.example.demo.controlador.UsuarioServicio;
-import com.example.demo.modelo.servicio.SerieServicio;
+import com.example.demo.modelo.entidades.Serie;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -34,9 +35,9 @@ public class PlataformaStreamingApplication {
         
 // Crear una serie
 Serie nuevaSerie = new Serie();
-nuevaSerie.setTitulo("La Casa );
-nuevaSerie.setDescripcion("No");
-nuevaSerie.setAnio_Estreno(2017);
+nuevaSerie.setTitulo("La Casa");
+nuevaSerie.setDescripcion("Serie de crimen ");
+nuevaSerie.setAnio_Estreno(2014);
 nuevaSerie.setClasificacion("+18");
 nuevaSerie.setCapitulos(22);
 nuevaSerie.setNum_temporadas(5);

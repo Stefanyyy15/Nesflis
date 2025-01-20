@@ -18,6 +18,10 @@ public class Serie extends Contenido {
         this.num_temporadas = num_temporadas;
     }
 
+    public Serie() {
+    }
+    
+
     public int getCapitulos() {
         return capitulos;
     }
