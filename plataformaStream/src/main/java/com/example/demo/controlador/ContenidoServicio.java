@@ -91,6 +91,10 @@ public class ContenidoServicio {
             System.out.println("Error al actualizar el administrador del contenido: " + e);
         }
     }
+    
+    public List<Contenido> obtenerContenidosPorAnio(int anio) {
+        return contenidoRepository.findContenidosByAnioEstreno(anio);
+    }
 }
 
 //       1. Agregar Contenido
@@ -141,5 +145,17 @@ public class ContenidoServicio {
 //
 //        contenidoService.actualizarAdministradorContenido(Long.valueOf("1"), admin1);
 //
-//    }
+//            5. Encontrar Contenido x Año JPQL
+//        int anioBusqueda = 2023;
+//        List<Contenido> contenidos = contenidoService.obtenerContenidosPorAnio(anioBusqueda);
+//
+//        if (contenidos.isEmpty()) {
+//            System.out.println("No se encontraron contenidos del año " + anioBusqueda);
+//        } else {
+//            System.out.println("Contenidos del año " + anioBusqueda + ":");
+//            for (Contenido contenido : contenidos) {
+//                System.out.println(contenido.getTitulo());
+//            }
+//        }
+//    
 

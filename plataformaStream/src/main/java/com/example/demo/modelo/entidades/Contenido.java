@@ -31,7 +31,7 @@ public class Contenido {
     )
     private List<Genero> generos;
     
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "contenidoReparto",
             joinColumns = @JoinColumn(name = "id_contenido"),
@@ -43,7 +43,7 @@ public class Contenido {
     @JoinColumn(name = "id_administrador")
     private Administrador administrador;
     
-    @OneToMany(mappedBy = "contenido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "contenido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
 
     public Contenido(String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {

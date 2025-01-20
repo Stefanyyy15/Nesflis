@@ -28,6 +28,10 @@ public class AdministradorServicio {
     public Optional<Administrador> encontrarAdmin (Long adminId){
         return administradorRepository.findById(adminId);
     }    
+    
+    public Optional<Administrador> encontrarPorCorreo(String correo) {
+        return administradorRepository.findAdministradorByCorreo(correo);
+    }
 }
 //        1. Agregar admin
 //       Administrador admin1 = new Administrador();
@@ -45,3 +49,7 @@ public class AdministradorServicio {
 
 //          4. Eliminar Admin
 //          adminService.delAdministrador(Long.valueOf("1"));
+
+//        5. Encontrar Administrador x Correo JPQL
+//        Optional<Administrador> idk = adminService.encontrarPorCorreo("juankisPotaxie@gmail.com");
+//        idk.ifPresent(a -> System.out.println("Administrador Encontrado: " + a.getNombre() + a.getContraseña()));

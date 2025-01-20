@@ -25,9 +25,5 @@ public class PlataformaStreamingApplication {
         AdministradorServicio adminService = contexto.getBean(AdministradorServicio.class);
         GeneroServicio generoService = contexto.getBean(GeneroServicio.class);
         
-
-        
-        
-
-
+//
     }}
