@@ -1,26 +1,17 @@
 
 package com.example.demo.modelo.entidades;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-<<<<<<< HEAD
     
-    private String role;
-
-    public Role() {
-    }
-
-    public Role(String role) {
-        this.role = role;
-    }
-    
-    
-=======
     private String role;
 
     public Role(Long id, String role) {
@@ -30,13 +21,11 @@ public class Role {
     
     public Role() {
     }
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
 
     public Long getId() {
         return id;
     }
-<<<<<<< HEAD
-=======
+
 
     public void setId(Long id) {
         this.id = id;
@@ -57,5 +46,4 @@ public class Role {
     }
     
 
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
 }

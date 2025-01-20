@@ -70,8 +70,4 @@ public class Plan {
     public void setNum_perfiles(int num_perfiles) {
         this.num_perfiles = num_perfiles;
     }
-<<<<<<< HEAD
-=======
-   
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
-}   
+}

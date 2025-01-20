@@ -1,17 +1,18 @@
 
 package com.example.demo.modelo.repositorio;
 
-import com.example.demo.modelo.entidades.Usuario;
-import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.example.demo.modelo.entidades.Usuario;
 
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
-    
-<<<<<<< HEAD
-=======
+    Optional<Usuario> findUsuarioByCorreo(@Param("correo") String correo);
+
+
 }
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
     // ********************************************************
     // Consultas JPQL
 //    @Query("SELECT u FROM Usuario u JOIN u.perfiles p WHERE p.edad >= 18")
@@ -22,10 +23,6 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 //           "GROUP BY u.id_usuario " +
 //           "HAVING COUNT(p) > 2")
 //    List<Usuario> findUsuariosConMasDe2Perfiles();
-<<<<<<< HEAD
-}
 
-=======
 //}
 //
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb

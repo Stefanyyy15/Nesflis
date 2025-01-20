@@ -23,8 +23,4 @@ public class Pelicula extends Contenido {
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> 787cf309e2b32b7754e031eb2b10b0b36ee20dbb
 }

@@ -1,31 +1,36 @@
-package com.example.demo.controlador;
+package com.example.demo.modelo.servicio;
 
 import com.example.demo.modelo.entidades.Serie;
 import com.example.demo.modelo.repositorio.SerieRepositorio;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class SerieServicio {
-    
+
+    private final SerieRepositorio serieRepositorio;
+
     @Autowired
-    private SerieRepositorio serieRepository;
-    
-    public Serie saveSerie(Serie serie) {
-        return serieRepository.save(serie);
+    public SerieServicio(SerieRepositorio serieRepositorio) {
+        this.serieRepositorio = serieRepositorio;
     }
-    
-    public void deleteSerie(Long serieId){
-        serieRepository.deleteById(serieId);
+
+    public Serie guardarSerie(Serie serie) {
+        return serieRepositorio.save(serie);
     }
-    
-    public List<Serie> listarSeries(){
-        return serieRepository.findAll();
+
+    public List<Serie> obtenerSeries() {
+        return serieRepositorio.findAll();
     }
-    
-    public Optional<Serie> encontrarSerie(Long serieId){
-        return serieRepository.findById(serieId);
-    }    
+
+    public Optional<Serie> obtenerSeriePorId(Long id) {
+        return serieRepositorio.findById(id);
+    }
+
+    public void eliminarSerie(Long id) {
+        serieRepositorio.deleteById(id);
+    }
 }
