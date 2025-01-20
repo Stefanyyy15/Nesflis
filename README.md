@@ -85,7 +85,7 @@ Si tienes alguna pregunta o deseas más información, no dudes en contactarme:
 - **Nombre**: Michelle
 - **GitHub**: [https://github.com/miDaya02](https://github.com/miDaya02)
 
-- **Nombre**: Stefany
+- **Nombre**: Luis
 - **GitHub**: [https://github.com/L-Salamanca](https://github.com/L-Salamanca)
 
 - **Nombre**: Stefany
