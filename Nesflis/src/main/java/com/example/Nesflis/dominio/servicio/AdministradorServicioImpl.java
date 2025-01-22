@@ -8,29 +8,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AdministradorServicioImpl {
+public class AdministradorServicioImpl implements AdministradorServicio {
     
     @Autowired
     private AdministradorRepositorio administradorRepository;
     
+    @Override
     public Administrador saveAdmin(Administrador admin) {
         return administradorRepository.save(admin);
     }
     
+    @Override
     public void delAdministrador(Long administradorId){
         administradorRepository.deleteById(administradorId);
     }
     
+    @Override
     public List<Administrador> listarAdmin(){
         return administradorRepository.findAll();
     }
     
+    @Override
     public Optional<Administrador> encontrarAdmin (Long adminId){
         return administradorRepository.findById(adminId);
     }    
     
     public Optional<Administrador> encontrarPorCorreo(String correo) {
         return administradorRepository.findAdministradorByCorreo(correo);
+    }
+
+    @Override
+    public Administrador updateAvocado(Administrador aguacate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 //        1. Agregar admin

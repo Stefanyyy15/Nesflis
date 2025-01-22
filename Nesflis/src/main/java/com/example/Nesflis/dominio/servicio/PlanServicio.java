@@ -1,60 +1,14 @@
 
 package com.example.Nesflis.dominio.servicio;
 
-import com.example.Nesflis.dominio.repositorio.PlanRepositorio;
 import com.example.Nesflis.persistencia.entidad.Plan;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class PlanServicio {
-
-    @Autowired
-    private PlanRepositorio planRepository; 
-
-    // Crear o actualizar un plan
-    public Plan savePlan(Plan plan) {
-        return planRepository.save(plan);
-    }
-
-    // Eliminar un plan por su ID
-    public void delPlan(Long planId) {
-        planRepository.deleteById(planId); 
-    }
-
-    // Listar todos los planes
-    public List<Plan> listarPlan() {
-        return planRepository.findAll(); 
-    }
-
-    // Encontrar un plan por su ID
-    public Optional<Plan> encontrarPlan(Long planId) {
-        return planRepository.findById(planId); 
-    }
+public interface PlanServicio {
+    Plan savePlan(Plan plan);
+    void delPlan(Long planId);
+    List<Plan> listarPlan();
+    Optional<Plan> encontrarPlan(Long planId);
+    Optional<Plan> actualizarPlan(Long idPlan, String nuevoNombre, Double nuevoPrecio_mensual, String nuevoCalidadVideo, int nuevoNumeroPerfil);
 }
-        //Crear ´plan
-//        Plan nuevoPlan = new Plan();
-//        nuevoPlan.setNombre("Plan Premium");
-//        nuevoPlan.setPrecio_mensual(19.999);
-//        nuevoPlan.setCalidad_video("4K");
-//        nuevoPlan.setNum_perfiles(5);
-//        planService.savePlan(nuevoPlan); 
-
-        // Listar todos los planes
-//        List<Plan> planes = planService.listarPlan();
-//        for (Plan plan : planes) {
-//            System.out.println("Plan: " + plan.getNombre());
-//        }
-
-        // Buscar un plan por ID
-//        Optional<Plan> planBuscado = planService.encontrarPlan(1L);  // Buscar plan con ID 1
-//        planBuscado.ifPresent(p -> System.out.println("Plan encontrado: " + p.getNombre()));
-
-        // Eliminar un plan por ID
-//        planService.delPlan(1L);
-//        System.out.println("Plan eliminado.");
-//        
-        
