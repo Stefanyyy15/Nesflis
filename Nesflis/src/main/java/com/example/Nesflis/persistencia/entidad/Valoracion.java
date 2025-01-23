@@ -1,5 +1,6 @@
 
 package com.example.Nesflis.persistencia.entidad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -20,10 +21,12 @@ public class Valoracion {
     
     @ManyToOne(optional = false) 
     @JoinColumn(name = "id_usuario", nullable = false)
+    @JsonIgnore
     private Usuario usuario;
 
     @ManyToOne(optional = false) 
-    @JoinColumn(name = "id_contenido", nullable = false) 
+    @JoinColumn(name = "id_contenido", nullable = false)
+    @JsonIgnore    
     private Contenido contenido;
 
     public Valoracion(Usuario usuario, Contenido contenido, int puntuacion, String comentario, Date fecha) {

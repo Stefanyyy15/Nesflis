@@ -1,5 +1,6 @@
 package com.example.Nesflis.persistencia.entidad;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Plan {
     @Column(nullable = false)
     private int num_perfiles;
     
-    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER) 
     private List<Usuario> usuarios = new ArrayList<>();
 
     public Plan(String nombre, double precio_mensual, String calidad_video, int num_perfiles) {

@@ -1,5 +1,6 @@
 package com.example.Nesflis.persistencia.entidad;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class Contenido {
             joinColumns = @JoinColumn(name = "id_contenido"),
             inverseJoinColumns = @JoinColumn(name = "id_genero")
     )
+    @JsonIgnore
     private List<Genero> generos;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -37,6 +39,7 @@ public class Contenido {
             joinColumns = @JoinColumn(name = "id_contenido"),
             inverseJoinColumns = @JoinColumn(name = "id_reparto")
     )
+    @JsonIgnore
     private List<Reparto> actores;
     
     @OneToOne

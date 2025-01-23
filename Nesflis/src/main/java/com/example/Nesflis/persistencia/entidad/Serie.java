@@ -9,12 +9,19 @@ public class Serie extends Contenido {
     private int capitulos;
     @Column(nullable = false)
     private int num_temporadas;
+    @Column(nullable = true)
+    private String imagenUrl;
 
-    public Serie(int capitulos, int num_temporadas, String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {
+    public Serie() {
+    }
+
+    public Serie(int capitulos, int num_temporadas, String imagenUrl, String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {
         super(titulo, descripcion, anio_Estreno, clasificacion, generos, actores);
         this.capitulos = capitulos;
         this.num_temporadas = num_temporadas;
+        this.imagenUrl = imagenUrl;
     }
+
 
     public int getCapitulos() {
         return capitulos;
@@ -30,5 +37,18 @@ public class Serie extends Contenido {
 
     public void setNum_temporadas(int num_temporadas) {
         this.num_temporadas = num_temporadas;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Serie{" + "capitulos=" + capitulos + ", num_temporadas=" + num_temporadas + ", imagenUrl=" + imagenUrl + '}';
     }
 }

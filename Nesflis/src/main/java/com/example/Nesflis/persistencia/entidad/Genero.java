@@ -1,5 +1,6 @@
 package com.example.Nesflis.persistencia.entidad;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Genero {
     private String nombre;
     
     @ManyToMany(mappedBy = "generos")
+    @JsonIgnore
     private List<Contenido> contenidos;
 
     public Genero(String nombre, List<Contenido> contenidos) {

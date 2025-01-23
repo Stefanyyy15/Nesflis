@@ -1,9 +1,13 @@
 package com.example.Nesflis.persistencia.entidad;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.Optional;
 
 @Entity
 public class Perfil {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_perfil;
@@ -12,13 +16,16 @@ public class Perfil {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_usuario", nullable = false)
+    @JsonBackReference  
     private Usuario usuario;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_contenido_favorito")
+    @JsonIgnore
     private Contenido contenidoFavorito;
 
-    public Perfil() {}
+    public Perfil() {
+    }
 
     public Perfil(String nombre, Usuario usuario, Contenido contenidoFavorito) {
         this.nombre = nombre;
@@ -50,17 +57,17 @@ public class Perfil {
         this.usuario = usuario;
     }
 
-    public Contenido getContenidoFavorito() {
-        return contenidoFavorito;
+    public Optional<Contenido> getContenidoFavorito() {
+        return Optional.ofNullable(contenidoFavorito);
     }
 
-    public void setContenidoFavorito(Contenido contenidoFavorito) {
-        this.contenidoFavorito = contenidoFavorito;
+    public void setContenidoFavorito(Optional<Contenido> contenidoFavorito) {
+        contenidoFavorito.ifPresent(contenido -> this.contenidoFavorito = contenido);
     }
 
     @Override
     public String toString() {
         return "Perfil{" + "id_perfil=" + id_perfil + ", nombre=" + nombre + ", usuario=" + usuario + ", contenidoFavorito=" + contenidoFavorito + '}';
     }
-    
+
 }
