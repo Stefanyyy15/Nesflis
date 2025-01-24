@@ -35,8 +35,7 @@ public class ValoracionServicioImpl implements ValoracionServicio{
         return valoracionRepository.findByContenido_Titulo(tituloContenido);
     }
 }
-<<<<<<< HEAD
-=======
+
 
 // Crear una nueva valoración
 // Valoracion nuevaValoracion = new Valoracion();
@@ -65,4 +64,4 @@ public class ValoracionServicioImpl implements ValoracionServicio{
 // Eliminar una valoración por ID
 // valoracionService.deleteValoracion(1L);
 // System.out.println("Valoración eliminada.");
->>>>>>> ed09f82 (Actualizando archivos)
+

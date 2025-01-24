@@ -36,8 +36,8 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     }
 }
 
-<<<<<<< HEAD
-=======
+
+
 // Crear un nuevo usuario
 // Usuario nuevoUsuario = new Usuario();
 // nuevoUsuario.setNombre("Kevin Santacruz");
@@ -64,4 +64,3 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 // Eliminar un usuario por ID
 // usuarioService.deleteUsuario(1L);
 // System.out.println("Usuario eliminado.");
->>>>>>> ed09f82 (Actualizando archivos)
