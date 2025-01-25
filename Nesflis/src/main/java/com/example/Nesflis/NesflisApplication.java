@@ -35,7 +35,21 @@ public class NesflisApplication {
         PerfilServicioImpl perfilService = contexto.getBean(PerfilServicioImpl.class);
         UsuarioServicioImpl usuarioService = contexto.getBean(UsuarioServicioImpl.class);
         PlanServicioImpl planService = contexto.getBean(PlanServicioImpl.class);
+        
+        
+ Optional plan = planService.encontrarPlan(1L);
 
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setNombre("KevinElenano");
+        nuevoUsuario.setCorreo("PazEnElAriporo@email.com");
+        nuevoUsuario.setContrasena("soyEnano");
+        nuevoUsuario.setFecha_registro(new Date()); 
+        nuevoUsuario.setPlan(plan); 
+
+        // Guardar el nuevo usuario en la base de datos
+        usuarioService.saveUsuario(nuevoUsuario);
+
+        
 //        Administrador admin1 = new Administrador();
 //        admin1.setNombre("Enano");
 //        admin1.setCorreo("Enano@gmail.com");
@@ -75,9 +89,9 @@ public class NesflisApplication {
 //// Llamar al servicio para agregar la serie
 //        contenidoService.agregarSerie(serie, generos, actores);
 //
-//
-//        // Crear el Plan
-//        Plan plan = new Plan("Basico", 500, "120p", 2);
+////
+////        // Crear el Plan
+//        Plan plan = new Plan("Premium", 6, "4k", 4);
 //        plan = planService.savePlan(plan);  // Guarda el plan en la base de datos
 //
 //// Convertir la fecha

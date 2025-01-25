@@ -10,11 +10,11 @@ public class Pelicula extends Contenido {
     @Column(nullable = true)
     private String imagenUrl;
 
-    public Pelicula(int duracion, String imagenUrl, String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {
-        super(titulo, descripcion, anio_Estreno, clasificacion, generos, actores);
+    public Pelicula(int duracion, String imagenUrl, Long id_contenido, String titulo, String descripcion, int anio_Estreno, String clasificacion, String tipo, List<Genero> generos, List<Reparto> actores, Administrador administrador) {
+        super(id_contenido, titulo, descripcion, anio_Estreno, clasificacion, tipo, generos, actores, administrador);
         this.duracion = duracion;
         this.imagenUrl = imagenUrl;
-    }   
+    } 
     
     public Pelicula(){
         

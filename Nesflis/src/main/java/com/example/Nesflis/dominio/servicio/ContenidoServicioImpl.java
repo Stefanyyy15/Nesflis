@@ -205,25 +205,6 @@ public class ContenidoServicioImpl implements ContenidoServicio {
 //contenidoActualizado.ifPresent(contenido -> 
 //    System.out.println("Contenido actualizado: " + contenido.getTitulo() + " - Año: " + contenido.getAnioEstreno()));
 //    
-//Genero genero = new Genero();
-//        genero.setNombre("Aventura");
-//
-//        Reparto actor = new Reparto();
-//        actor.setNombre("John Doe");
-//
-//        List<Genero> generos = List.of(genero);
-//        List<Reparto> reparto = List.of(actor);
-//
-//        Pelicula pelicula = new Pelicula();
-//        pelicula.setTitulo("Película de Prueba");
-//        pelicula.setDescripcion("Descripción de prueba");
-//        pelicula.setAnio_Estreno(2025);
-//        pelicula.setClasificacion("+13");
-//        pelicula.setDuracion(120);
-//        pelicula.setGeneros(generos);
-//        pelicula.setActores(reparto);
-//
-//        contenidoService.agregarPelicula(pelicula, generos, reparto);
 //Agregar Pelicula
 //Genero genero = new Genero();
 //        genero.setNombre("Accion");

@@ -15,13 +15,12 @@ public class Serie extends Contenido {
     public Serie() {
     }
 
-    public Serie(int capitulos, int num_temporadas, String imagenUrl, String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {
-        super(titulo, descripcion, anio_Estreno, clasificacion, generos, actores);
+    public Serie(int capitulos, int num_temporadas, String imagenUrl, Long id_contenido, String titulo, String descripcion, int anio_Estreno, String clasificacion, String tipo, List<Genero> generos, List<Reparto> actores, Administrador administrador) {
+        super(id_contenido, titulo, descripcion, anio_Estreno, clasificacion, tipo, generos, actores, administrador);
         this.capitulos = capitulos;
         this.num_temporadas = num_temporadas;
         this.imagenUrl = imagenUrl;
     }
-
 
     public int getCapitulos() {
         return capitulos;

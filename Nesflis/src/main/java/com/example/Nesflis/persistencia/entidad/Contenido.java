@@ -23,6 +23,9 @@ public class Contenido {
 
     @Column(nullable = false, length = 256)
     private String clasificacion;
+    
+    @Column(nullable = false, length = 256)
+    private String tipo;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -49,13 +52,16 @@ public class Contenido {
     @OneToMany(mappedBy = "contenido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
 
-    public Contenido(String titulo, String descripcion, int anio_Estreno, String clasificacion, List<Genero> generos, List<Reparto> actores) {
+    public Contenido(Long id_contenido, String titulo, String descripcion, int anio_Estreno, String clasificacion, String tipo, List<Genero> generos, List<Reparto> actores, Administrador administrador) {
+        this.id_contenido = id_contenido;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.anio_Estreno = anio_Estreno;
         this.clasificacion = clasificacion;
+        this.tipo = tipo;
         this.generos = generos;
         this.actores = actores;
+        this.administrador = administrador;
     }
 
     public Contenido(String titulo) {
@@ -129,6 +135,22 @@ public class Contenido {
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public List<Valoracion> getValoraciones() {
+        return valoraciones;
+    }
+
+    public void setValoraciones(List<Valoracion> valoraciones) {
+        this.valoraciones = valoraciones;
     }
 
     @Override

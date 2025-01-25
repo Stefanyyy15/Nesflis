@@ -1,10 +1,10 @@
 package com.example.Nesflis.persistencia.entidad;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Usuario {
@@ -31,6 +31,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
 
+    
     public Usuario(String nombre, String correo, String contrasena, Date fecha_registro, Plan plan) {
         this.nombre = nombre;
         this.correo = correo;
@@ -48,7 +49,7 @@ public class Usuario {
     public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -81,12 +82,12 @@ public class Usuario {
         this.fecha_registro = fecha_registro;
     }
 
-    public Plan getPlan() {
-        return plan;
+    public Optional<Plan> getPlan() {
+        return Optional.ofNullable(plan);
     }
 
-    public void setPlan(Plan plan) {
-        this.plan = plan;
+    public void setPlan(Optional<Plan> plan) {
+        plan.ifPresent(plann -> this.plan = plann);
     }
 
     public List<Perfil> getPerfiles() {
@@ -99,8 +100,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + ", fecha_registro=" + fecha_registro + ", plan=" + plan + ", perfiles=" + perfiles + '}';
+        return "Usuario{" + "id_usuario=" + id_usuario + ", correo=" + correo + ", contrasena=" + contrasena + ", fecha_registro=" + fecha_registro + ", plan=" + plan + ", perfiles=" + perfiles + ", valoraciones=" + valoraciones + '}';
     }
+
+    
 
     
 }
