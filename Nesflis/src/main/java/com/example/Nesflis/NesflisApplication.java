@@ -35,28 +35,8 @@ public class NesflisApplication {
         PerfilServicioImpl perfilService = contexto.getBean(PerfilServicioImpl.class);
         UsuarioServicioImpl usuarioService = contexto.getBean(UsuarioServicioImpl.class);
         PlanServicioImpl planService = contexto.getBean(PlanServicioImpl.class);
-        
-        
- Optional plan = planService.encontrarPlan(1L);
-
-        Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setNombre("KevinElenano");
-        nuevoUsuario.setCorreo("PazEnElAriporo@email.com");
-        nuevoUsuario.setContrasena("soyEnano");
-        nuevoUsuario.setFecha_registro(new Date()); 
-        nuevoUsuario.setPlan(plan); 
-
-        // Guardar el nuevo usuario en la base de datos
-        usuarioService.saveUsuario(nuevoUsuario);
-
-        
-//        Administrador admin1 = new Administrador();
-//        admin1.setNombre("Enano");
-//        admin1.setCorreo("Enano@gmail.com");
-//        admin1.setContraseña("olaMellamoKevin");
-//        adminImp.saveAdmin(admin1);
-//
-//        Genero gen1 = new Genero();
+//        
+//       Genero gen1 = new Genero();
 //        gen1.setNombre("Drama");
 //        Genero gen2 = new Genero();
 //        gen2.setNombre("Suspenso");
@@ -88,46 +68,6 @@ public class NesflisApplication {
 //
 //// Llamar al servicio para agregar la serie
 //        contenidoService.agregarSerie(serie, generos, actores);
-//
-////
-////        // Crear el Plan
-//        Plan plan = new Plan("Premium", 6, "4k", 4);
-//        plan = planService.savePlan(plan);  // Guarda el plan en la base de datos
-//
-//// Convertir la fecha
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-//        Date fechaNacimiento = sdf.parse("10-10-2010");
-//
-//// Crear el Usuario
-//        Usuario usuario = new Usuario();
-//        usuario.setNombre("juano");
-//        usuario.setCorreo("lecorreodejuano@correo.com");
-//        usuario.setFecha_registro(fechaNacimiento);
-//        usuario.setPlan(plan);
-//        usuario.setContrasena("olaQtal");
-//
-//// Guardar el Usuario en la base de datos
-//        usuarioService.saveUsuario(usuario);  // Asegúrate de que el servicio de Usuario esté configurado
-//
-//// Crear el Contenido Favorito (ya deberías tener el objeto 'serie' listo)
-//        Optional<Contenido> serie = contenidoService.encontrarContenidoPorId(1L);  // Esto depende de cómo obtienes la serie
-//
-//// Crear el Perfil
-//        Perfil nuevoPerfil = new Perfil();
-//        nuevoPerfil.setNombre("Perfil de Juan");
-//        nuevoPerfil.setUsuario(usuario);  // Aquí se asocia al Usuario que ya fue guardado
-//        nuevoPerfil.setContenidoFavorito(serie);  // Asigna el contenido favorito
-//
-//// Guardar el Perfil en la base de datos
-//        perfilService.savePerfil(nuevoPerfil);  // Guarda el perfil después de guardar el usuario
-//
-//// Si deseas agregar el perfil a la lista de perfiles del usuario:
-//        List<Perfil> perfiles = usuario.getPerfiles();  // Esto ya debería existir como una lista de perfiles
-//        perfiles.add(nuevoPerfil);
-//        usuario.setPerfiles(perfiles);  // Actualiza la lista de perfiles del usuario
-//
-//// Luego puedes guardar de nuevo el usuario si es necesario
-//        usuarioService.saveUsuario(usuario);  // Guardamos nuevamente el usuario con su nuevo perfil asociado
 
     }
 

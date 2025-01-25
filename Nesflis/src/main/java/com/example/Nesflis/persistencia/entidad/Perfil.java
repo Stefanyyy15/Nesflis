@@ -48,13 +48,13 @@ public class Perfil {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public Usuario getUsuario() {
-        return usuario;
+    
+    public Optional<Usuario> getUsuario() {
+        return Optional.ofNullable(usuario);
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Optional<Usuario> usuario) {
+        usuario.ifPresent(usser -> this.usuario = usser);
     }
 
     public Optional<Contenido> getContenidoFavorito() {
