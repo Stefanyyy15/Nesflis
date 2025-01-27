@@ -1,4 +1,3 @@
-
 package com.example.Nesflis.dominio.servicio;
 
 import com.example.Nesflis.dominio.repositorio.PerfilRepositorio;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PerfilServicioImpl implements PerfilServicio{
+public class PerfilServicioImpl implements PerfilServicio {
 
     @Autowired
     private PerfilRepositorio perfilRepository;
@@ -17,13 +16,13 @@ public class PerfilServicioImpl implements PerfilServicio{
     // Crear o actualizar un perfil
     @Override
     public Perfil savePerfil(Perfil perfil) {
-        return perfilRepository.save(perfil); 
+        return perfilRepository.save(perfil);
     }
 
     // Eliminar un perfil por su ID
     @Override
     public void delPerfil(Long perfilId) {
-        perfilRepository.deleteById(perfilId); 
+        perfilRepository.deleteById(perfilId);
     }
 
     // Listar todos los perfiles
@@ -35,12 +34,12 @@ public class PerfilServicioImpl implements PerfilServicio{
     // Encontrar un perfil por su ID
     @Override
     public Optional<Perfil> encontrarPerfil(Long perfilId) {
-        return perfilRepository.findById(perfilId); 
+        return perfilRepository.findById(perfilId);
     }
-    
+
 }
 
-  //         Crear un nuevo perfil
+//         Crear un nuevo perfil
 //Perfil nuevoPerfil = new Perfil();
 //nuevoPerfil.setNombre("Perfil de Juan");
 //nuevoPerfil.setUsuario(usuario); 
@@ -48,7 +47,6 @@ public class PerfilServicioImpl implements PerfilServicio{
 //
 // Guardar el perfil
 //perfilService.savePerfil(nuevoPerfil);
-
 // Obtener la lista de todos los perfiles
 //List<Perfil> perfiles = perfilService.listarPerfil();
 //
@@ -56,11 +54,9 @@ public class PerfilServicioImpl implements PerfilServicio{
 //for (Perfil perfil : perfiles) {
 //    System.out.println("Perfil: " + perfil.getNombre());
 //}
-
 // Buscar un perfil por su ID
 //Optional<Perfil> perfilBuscado = perfilService.encontrarPerfil(1L); 
 //perfilBuscado.ifPresent(p -> System.out.println("Perfil encontrado: " + p.getNombre()));
-
 // Eliminar el perfil con el ID 1
 //perfilService.delPerfil(1L);
 //System.out.println("Perfil eliminado.");

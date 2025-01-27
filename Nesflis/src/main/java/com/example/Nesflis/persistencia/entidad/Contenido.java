@@ -51,6 +51,10 @@ public class Contenido {
     
     @OneToMany(mappedBy = "contenido", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
+    
+    @ManyToMany(mappedBy = "contenidosFavoritos")
+    @JsonIgnore
+    private List<Perfil> perfiles = new ArrayList<>();
 
     public Contenido(Long id_contenido, String titulo, String descripcion, int anio_Estreno, String clasificacion, String tipo, List<Genero> generos, List<Reparto> actores, Administrador administrador) {
         this.id_contenido = id_contenido;
