@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PerfilServicioImpl implements PerfilServicio{
+public class PerfilServicioImpl implements PerfilServicio {
 
     @Autowired
     private PerfilRepositorio perfilRepository;
@@ -17,28 +17,28 @@ public class PerfilServicioImpl implements PerfilServicio{
     // Crear o actualizar un perfil
     @Override
     public Perfil savePerfil(Perfil perfil) {
-        return perfilRepository.save(perfil); 
+        return perfilRepository.save(perfil);  // Guarda el perfil usando JPQL o nativa
     }
 
     // Eliminar un perfil por su ID
     @Override
     public void delPerfil(Long perfilId) {
-        perfilRepository.deleteById(perfilId); 
+        perfilRepository.deleteById(perfilId);  // Eliminar el perfil
     }
 
     // Listar todos los perfiles
     @Override
     public List<Perfil> listarPerfil() {
-        return perfilRepository.findAll(); // Devuelve todos los perfiles
+        return perfilRepository.findAll();  // Devuelve todos los perfiles
     }
 
     // Encontrar un perfil por su ID
     @Override
     public Optional<Perfil> encontrarPerfil(Long perfilId) {
-        return perfilRepository.findById(perfilId); 
+        return perfilRepository.findById(perfilId);  // Buscar perfil por ID
     }
-    
 }
+
 
   //         Crear un nuevo perfil
 //Perfil nuevoPerfil = new Perfil();

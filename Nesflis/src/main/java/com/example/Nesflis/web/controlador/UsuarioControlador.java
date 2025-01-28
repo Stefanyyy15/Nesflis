@@ -5,6 +5,7 @@ import com.example.Nesflis.persistencia.entidad.Usuario;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,13 +40,13 @@ public class UsuarioControlador {
         return usuarioImpl.encontrarPorCorreo(correo);
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public Usuario createUsuario(@RequestBody Usuario usuario) {
         return usuarioImpl.saveUsuario(usuario);
     }
-    
+
     @DeleteMapping("/{id}")
     public void deleteUsuario(@PathVariable Long id) {
-        usuarioImpl.deleteUsuario(id);
+        usuarioImpl.deleteUsuario(id);  // Aquí llamas al método para eliminar el usuario
     }
 }
