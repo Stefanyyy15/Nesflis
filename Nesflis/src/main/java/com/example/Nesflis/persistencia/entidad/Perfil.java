@@ -3,6 +3,8 @@ package com.example.Nesflis.persistencia.entidad;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Entity
@@ -19,18 +21,22 @@ public class Perfil {
     @JsonBackReference  
     private Usuario usuario;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "id_contenido_favorito")
+    @ManyToMany
+    @JoinTable(
+        name = "perfil_contenido",
+        joinColumns = @JoinColumn(name = "perfil_id"),
+        inverseJoinColumns = @JoinColumn(name = "contenido_id")
+    )
     @JsonIgnore
-    private Contenido contenidoFavorito;
+    private List<Contenido> contenidosFavoritos = new ArrayList<>();
 
     public Perfil() {
     }
 
-    public Perfil(String nombre, Usuario usuario, Contenido contenidoFavorito) {
+    public Perfil(Long id_perfil, String nombre, Usuario usuario) {
+        this.id_perfil = id_perfil;
         this.nombre = nombre;
         this.usuario = usuario;
-        this.contenidoFavorito = contenidoFavorito;
     }
 
     public Long getId_perfil() {
@@ -57,17 +63,25 @@ public class Perfil {
         usuario.ifPresent(usser -> this.usuario = usser);
     }
 
-    public Optional<Contenido> getContenidoFavorito() {
-        return Optional.ofNullable(contenidoFavorito);
+    public List<Contenido> getContenidosFavoritos() {
+        return contenidosFavoritos;
     }
 
-    public void setContenidoFavorito(Optional<Contenido> contenidoFavorito) {
-        contenidoFavorito.ifPresent(contenido -> this.contenidoFavorito = contenido);
-    }
+    public void setContenidosFavoritos(List<Contenido> contenidosFavoritos) {
+        this.contenidosFavoritos = contenidosFavoritos;
+    }    
+    
+
+//    public Optional<Contenido> getContenidoFavorito() {
+//        return Optional.ofNullable(contenidoFavorito);
+//    }
+//
+//    public void setContenidoFavorito(Optional<Contenido> contenidoFavorito) {
+//        contenidoFavorito.ifPresent(contenido -> this.contenidoFavorito = contenido);
+//    }
 
     @Override
     public String toString() {
-        return "Perfil{" + "id_perfil=" + id_perfil + ", nombre=" + nombre + ", usuario=" + usuario + ", contenidoFavorito=" + contenidoFavorito + '}';
+        return "Perfil{" + "id_perfil=" + id_perfil + ", nombre=" + nombre + ", usuario=" + usuario + ", contenidosFavoritos=" + contenidosFavoritos + '}';
     }
-
 }

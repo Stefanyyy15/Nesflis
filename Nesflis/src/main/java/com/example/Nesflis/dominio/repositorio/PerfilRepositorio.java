@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PerfilRepositorio extends JpaRepository<Perfil, Long> {
-    List<Perfil> findByContenidoFavorito(Contenido contenidoFavorito);
+     List<Perfil> findByContenidosFavoritos(Contenido contenidoFavorito);
 }
