@@ -1,36 +1,38 @@
 package com.example.Nesflis.persistencia.entidad;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
+
     @Column(nullable = false, length = 256)
     private String nombre;
+
     @Column(nullable = false, length = 256, unique = true)
     private String correo;
+
     @Column(nullable = false, length = 256)
     private String contrasena;
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date fecha_registro;
-    
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_plan", nullable = false)
     private Plan plan;
-    
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JsonManagedReference 
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Perfil> perfiles = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Valoracion> valoraciones = new ArrayList<>();
     
      @PrePersist
@@ -40,14 +42,12 @@ public class Usuario {
     }
 
     
-    public Usuario(String nombre, String correo, String contrasena, Plan plan) {
+    public Usuario(String nombre, String correo, String contrasena, Date fecha_registro, Plan plan) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.plan = plan;
     }
-    
-    public Usuario() {}
 
     public Long getId_usuario() {
         return id_usuario;
@@ -56,7 +56,7 @@ public class Usuario {
     public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -89,12 +89,12 @@ public class Usuario {
         this.fecha_registro = fecha_registro;
     }
 
-    public Optional<Plan> getPlan() {
-        return Optional.ofNullable(plan);
+    public Plan getPlan() {
+        return plan;
     }
 
-    public void setPlan(Optional<Plan> plan) {
-        plan.ifPresent(plann -> this.plan = plann);
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 
     public List<Perfil> getPerfiles() {
@@ -105,12 +105,25 @@ public class Usuario {
         this.perfiles = perfiles;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", correo=" + correo + ", contrasena=" + contrasena + ", fecha_registro=" + fecha_registro + ", plan=" + plan + ", perfiles=" + perfiles + ", valoraciones=" + valoraciones + '}';
+    public List<Valoracion> getValoraciones() {
+        return valoraciones;
     }
 
-    
+    public void setValoraciones(List<Valoracion> valoraciones) {
+        this.valoraciones = valoraciones;
+    }
 
-    
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id_usuario=" + id_usuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", fecha_registro=" + fecha_registro +
+                ", plan=" + plan +
+                ", perfiles=" + perfiles +
+                ", valoraciones=" + valoraciones +
+                '}';
+    }
 }

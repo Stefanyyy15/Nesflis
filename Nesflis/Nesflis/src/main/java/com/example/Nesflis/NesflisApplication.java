@@ -1,29 +1,16 @@
 package com.example.Nesflis;
 
-import com.example.Nesflis.dominio.servicio.AdministradorServicioImpl;
-import com.example.Nesflis.dominio.servicio.ContenidoServicio;
-import com.example.Nesflis.dominio.servicio.ContenidoServicioImpl;
-import com.example.Nesflis.dominio.servicio.PerfilServicioImpl;
-import com.example.Nesflis.dominio.servicio.PlanServicioImpl;
-import com.example.Nesflis.dominio.servicio.UsuarioServicioImpl;
-import com.example.Nesflis.persistencia.entidad.Administrador;
-import com.example.Nesflis.persistencia.entidad.Contenido;
-import com.example.Nesflis.persistencia.entidad.Genero;
-import com.example.Nesflis.persistencia.entidad.Pelicula;
-import com.example.Nesflis.persistencia.entidad.Perfil;
-import com.example.Nesflis.persistencia.entidad.Plan;
-import com.example.Nesflis.persistencia.entidad.Reparto;
-import com.example.Nesflis.persistencia.entidad.Serie;
-import com.example.Nesflis.persistencia.entidad.Usuario;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import com.example.Nesflis.dominio.servicio.AdministradorServicioImpl;
+import com.example.Nesflis.dominio.servicio.ContenidoServicio;
+import com.example.Nesflis.dominio.servicio.PerfilServicioImpl;
+import com.example.Nesflis.dominio.servicio.PlanServicioImpl;
+import com.example.Nesflis.dominio.servicio.UsuarioServicioImpl;
 
 @SpringBootApplication
 public class NesflisApplication {
@@ -35,6 +22,7 @@ public class NesflisApplication {
         PerfilServicioImpl perfilService = contexto.getBean(PerfilServicioImpl.class);
         UsuarioServicioImpl usuarioService = contexto.getBean(UsuarioServicioImpl.class);
         PlanServicioImpl planService = contexto.getBean(PlanServicioImpl.class);
+<<<<<<< HEAD
 
 //        List<Contenido> contenidoFavorito = new ArrayList<>();
 //// Intentar obtener el contenido con el ID 15
@@ -67,6 +55,8 @@ public class NesflisApplication {
 //        perfilService.savePerfil(nuevoPerfil);
 //        System.out.println("Perfil guardado con éxito: " + nuevoPerfil);
 
+=======
+>>>>>>> b8e6b7eb8440b182f39a6848d7c4a5402ab60012
 //        
 //       Genero gen1 = new Genero();
 //        gen1.setNombre("Drama");
@@ -87,7 +77,7 @@ public class NesflisApplication {
 //        List<Reparto> actores = new ArrayList<>();
 //        actores.add(rep1);
 //        actores.add(rep2);
-//
+
 //// Crear la serie
 //        Serie serie = new Serie();
 //        serie.setTitulo("Misterios No Resueltos");

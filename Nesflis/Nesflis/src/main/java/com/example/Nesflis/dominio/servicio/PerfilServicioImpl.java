@@ -1,11 +1,13 @@
 package com.example.Nesflis.dominio.servicio;
 
-import com.example.Nesflis.dominio.repositorio.PerfilRepositorio;
-import com.example.Nesflis.persistencia.entidad.Perfil;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.Nesflis.dominio.repositorio.PerfilRepositorio;
+import com.example.Nesflis.persistencia.entidad.Perfil;
 
 @Service
 public class PerfilServicioImpl implements PerfilServicio {
@@ -16,28 +18,29 @@ public class PerfilServicioImpl implements PerfilServicio {
     // Crear o actualizar un perfil
     @Override
     public Perfil savePerfil(Perfil perfil) {
-        return perfilRepository.save(perfil);
+        return perfilRepository.save(perfil); 
     }
 
     // Eliminar un perfil por su ID
     @Override
     public void delPerfil(Long perfilId) {
-        perfilRepository.deleteById(perfilId);
+        perfilRepository.deleteById(perfilId); 
     }
 
     // Listar todos los perfiles
     @Override
     public List<Perfil> listarPerfil() {
-        return perfilRepository.findAll(); // Devuelve todos los perfiles
+        return perfilRepository.findAll();  // Devuelve todos los perfiles
     }
 
     // Encontrar un perfil por su ID
     @Override
     public Optional<Perfil> encontrarPerfil(Long perfilId) {
-        return perfilRepository.findById(perfilId);
+        return perfilRepository.findById(perfilId); 
     }
-
+    
 }
+
 
 //         Crear un nuevo perfil
 //Perfil nuevoPerfil = new Perfil();
