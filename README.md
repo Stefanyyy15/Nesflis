@@ -2,6 +2,9 @@
 
 Este proyecto es una plataforma de streaming desarrollada en Java 17 con Spring Boot y utilizando PostgreSQL como base de datos. La plataforma permite a los usuarios explorar, interactuar y gestionar contenido de películas y series, simulando una experiencia similar a otras plataformas populares de streaming.
 
+## Link Front-End
+https://github.com/Stefanyyy15/NesflisFront
+
 ![logo nesflis](img/logo.png)
 
 ## Tabla de contenido
