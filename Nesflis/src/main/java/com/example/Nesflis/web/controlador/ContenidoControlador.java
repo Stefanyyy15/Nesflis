@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/contenido")
+@CrossOrigin(origins = "http://localhost:5500") // Permitir CORS solo en este controlador
 public class ContenidoControlador {
 
     private final ContenidoServicioImpl contenidoServicio;

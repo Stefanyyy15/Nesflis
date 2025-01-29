@@ -36,36 +36,36 @@ public class NesflisApplication {
         UsuarioServicioImpl usuarioService = contexto.getBean(UsuarioServicioImpl.class);
         PlanServicioImpl planService = contexto.getBean(PlanServicioImpl.class);
 
-        List<Contenido> contenidoFavorito = new ArrayList<>();
-// Intentar obtener el contenido con el ID 15
-        Optional<Contenido> contenido1Optional = contenidoService.encontrarContenidoPorId(15L);
-        contenido1Optional.ifPresent(contenidoFavorito::add);
-// Intentar obtener el contenido con el ID 20
-        Optional<Contenido> contenido2Optional = contenidoService.encontrarContenidoPorId(20L);
-        contenido2Optional.ifPresent(contenidoFavorito::add);
-// Intentar obtener el contenido con el ID 10
-        Optional<Contenido> contenido3Optional = contenidoService.encontrarContenidoPorId(10L);
-        contenido3Optional.ifPresent(contenidoFavorito::add);
-
-        System.out.println("Contenido 15 encontrado: " + contenido1Optional.isPresent());
-        System.out.println("Contenido 20 encontrado: " + contenido2Optional.isPresent());
-        System.out.println("Contenido 10 encontrado: " + contenido3Optional.isPresent());
-
-        System.out.println(contenidoFavorito);
-        Perfil nuevoPerfil = new Perfil();
-        nuevoPerfil.setNombre("Perfil de Stefa");
-        Optional<Usuario> usuarioOptional = usuarioService.encontrarUsuario(3L);
-        if (usuarioOptional.isPresent()) {
-            nuevoPerfil.setUsuario(usuarioOptional);
-        } else {
-            System.err.println("Usuario no encontrado");
-            return;
-        }
-
-        nuevoPerfil.setContenidosFavoritos(contenidoFavorito);
-
-        perfilService.savePerfil(nuevoPerfil);
-        System.out.println("Perfil guardado con éxito: " + nuevoPerfil);
+//        List<Contenido> contenidoFavorito = new ArrayList<>();
+//// Intentar obtener el contenido con el ID 15
+//        Optional<Contenido> contenido1Optional = contenidoService.encontrarContenidoPorId(15L);
+//        contenido1Optional.ifPresent(contenidoFavorito::add);
+//// Intentar obtener el contenido con el ID 20
+//        Optional<Contenido> contenido2Optional = contenidoService.encontrarContenidoPorId(20L);
+//        contenido2Optional.ifPresent(contenidoFavorito::add);
+//// Intentar obtener el contenido con el ID 10
+//        Optional<Contenido> contenido3Optional = contenidoService.encontrarContenidoPorId(10L);
+//        contenido3Optional.ifPresent(contenidoFavorito::add);
+//
+//        System.out.println("Contenido 15 encontrado: " + contenido1Optional.isPresent());
+//        System.out.println("Contenido 20 encontrado: " + contenido2Optional.isPresent());
+//        System.out.println("Contenido 10 encontrado: " + contenido3Optional.isPresent());
+//
+//        System.out.println(contenidoFavorito);
+//        Perfil nuevoPerfil = new Perfil();
+//        nuevoPerfil.setNombre("Perfil de Stefa");
+//        Optional<Usuario> usuarioOptional = usuarioService.encontrarUsuario(3L);
+//        if (usuarioOptional.isPresent()) {
+//            nuevoPerfil.setUsuario(usuarioOptional);
+//        } else {
+//            System.err.println("Usuario no encontrado");
+//            return;
+//        }
+//
+////        nuevoPerfil.setContenidosFavoritos(contenidoFavorito);
+//
+//        perfilService.savePerfil(nuevoPerfil);
+//        System.out.println("Perfil guardado con éxito: " + nuevoPerfil);
 
 //        
 //       Genero gen1 = new Genero();

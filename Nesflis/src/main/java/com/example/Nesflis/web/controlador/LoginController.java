@@ -1,38 +1,39 @@
-//
-//package com.example.Nesflis.web.controlador;
-//
-//@Configuration
-//public class JWTAuthtenticationConfig {
-//
-//    // Método para generar un token JWT
-//    public String getJWTToken(String username) {
-//        // Lista de autoridades (roles) asignadas al usuario (ROLE_USER en este caso)
-//        List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-//                .commaSeparatedStringToAuthorityList("ROLE_USER");
-//
-//        // Crear un token JWT usando la biblioteca jjwt
-//        String token = Jwts
-//                .builder()
-//                // Establecer el ID del token
-//                .setId("campuscl")
-//                // Establecer el sujeto del token (en este caso, el nombre de usuario)
-//                .setSubject(username)
-//                // Agregar la lista de autoridades al token en forma de Claims
-//                .claim("authorities",
-//                        grantedAuthorities.stream()
-//                                .map(GrantedAuthority::getAuthority)
-//                                .collect(Collectors.toList()))
-//                // Establecer la fecha de emisión del token (actual)
-//                .setIssuedAt(new Date(System.currentTimeMillis()))
-//                // Establecer la fecha de expiración del token (actual + tiempo de expiración)
-//                .setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION_TIME))
-//                // Firmar el token con la clave secreta y el algoritmo de firma HS512
-//                .signWith(getSigningKey(SUPER_SECRET_KEY),  SignatureAlgorithm.HS512).compact();
-//
-//        // Devolver el token precedido por el prefijo "Bearer"
-//        return "Bearer " + token;
-//    }
-//
-//}
-//
-//
+
+package com.example.Nesflis.web.controlador;
+
+import com.example.Nesflis.dominio.seguridad.JWTAuthtenticationConfig;
+import com.example.Nesflis.dominio.servicio.UsuarioServicioImpl;
+import com.example.Nesflis.persistencia.entidad.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class LoginController {
+
+    @Autowired
+    private JWTAuthtenticationConfig jwtAuthtenticationConfig;
+
+    @Autowired
+    private UsuarioServicioImpl imp;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(
+            @RequestParam("correo") String correo,
+            @RequestParam("contrasena") String contrasena) {
+
+        if (imp.verificarUsuario(correo, contrasena)) {
+            String token = jwtAuthtenticationConfig.getJWTToken(correo);
+
+            User user = new User(correo, contrasena, token);
+            return ResponseEntity.ok(user);
+        }
+        return null;
+
+    }
+
+}
+
+

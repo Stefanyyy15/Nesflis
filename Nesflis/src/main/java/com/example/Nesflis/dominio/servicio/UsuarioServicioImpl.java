@@ -34,6 +34,21 @@ public class UsuarioServicioImpl implements UsuarioServicio{
     public Optional<Usuario> encontrarPorCorreo(String correo) {
         return usuarioRepository.findUsuarioByCorreo(correo);
     }
+    
+    
+    public boolean verificarUsuario(String name, String password) {
+    Usuario verifi = usuarioRepository.findUsuarioByCorreo(name).get();
+    
+    if (verifi == null) {
+        return false; 
+    }
+
+    if (!verifi.getContrasena().equals(password)) {
+        return false; 
+    }
+    
+    return true; 
+}
 }
 
 

@@ -1,4 +1,3 @@
-
 package com.example.Nesflis;
 
 import org.springframework.context.annotation.Bean;
@@ -15,9 +14,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://127.0.0.1:5500")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowCredentials(true);
+                        .allowedOrigins("http://localhost:5500", "http://127.0.0.1:5500")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*");
+
             }
         };
     }

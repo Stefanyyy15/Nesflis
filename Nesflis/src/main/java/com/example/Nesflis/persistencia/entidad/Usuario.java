@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Usuario {
@@ -17,7 +18,8 @@ public class Usuario {
     private String correo;
     @Column(nullable = false, length = 256)
     private String contrasena;
-    @Temporal(TemporalType.DATE)
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_registro;
     
     @ManyToOne(optional = false)
@@ -30,13 +32,18 @@ public class Usuario {
     
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Valoracion> valoraciones = new ArrayList<>();
+    
+     @PrePersist
+    public void prePersist() {
+        // Establecer la fecha automáticamente antes de persistir
+        this.fecha_registro = new Date(); // Fecha actual
+    }
 
     
-    public Usuario(String nombre, String correo, String contrasena, Date fecha_registro, Plan plan) {
+    public Usuario(String nombre, String correo, String contrasena, Plan plan) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.fecha_registro = fecha_registro;
         this.plan = plan;
     }
     
